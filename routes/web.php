@@ -5,10 +5,12 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\LaporanController;
 
-Route::get('/laporans', [LaporanController::class, 'index'])->name('laporans.index');
+// Route::get('/', function () {
+//     return view('welcome');
+// })
+Route::get('/', [LaporanController::class, 'index'])->name('laporans.index');
 Route::get('/laporans/pdf', [LaporanController::class, 'exportPdf'])->name('laporans.pdf');
 Route::get('/laporans/excel', [LaporanController::class, 'exportExcel'])->name('laporans.excel');
-
 
 // Task Routes
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
