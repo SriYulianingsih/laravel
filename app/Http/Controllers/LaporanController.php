@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\SantriExport;
 use App\Models\Santri;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class LaporanController extends Controller
@@ -25,7 +26,7 @@ class LaporanController extends Controller
 
     public function exportExcel()
     {
-        return Santri::all();
+        return Excel::download(new SantriExport, 'laporan_santri.xlsx');
     }
     
 }
